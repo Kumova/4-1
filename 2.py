@@ -3,6 +3,9 @@ nested_list = [
 	['d', 'e', 'f'],
 	[1, 2, None],
 ]
-for lst in nested_list:
-    for i in lst:
-        print(i)
+
+def flat_generator(a: list) -> list:
+    return [x for sublist in a for x in sublist]
+
+for item in  flat_generator(nested_list):
+    print(item)
