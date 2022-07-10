@@ -4,8 +4,10 @@ nested_list = [
 	[1, 2, None],
 ]
 
-def flat_generator(a: list) -> list:
-    return [x for sublist in a for x in sublist]
+def gen(*args, **kwargs):
+	for i in (i for lst in nested_list for i in lst):
+		yield i
 
-for item in  flat_generator(nested_list):
-    print(item)
+for item in gen():
+	print(item)
+
